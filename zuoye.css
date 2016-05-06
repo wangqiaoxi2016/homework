@@ -1,0 +1,72 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+ul li {
+    list-style:none;
+}
+
+.aihao {
+    color:#fff;
+}
+
+#add {
+    display:inline-block;
+    width:34px;
+    line-height:19px;
+    text-align:center;
+    background-color:#ccc;
+    height:19px;
+    border:1px solid #ccc;
+    cursor: pointer;
+    color:#fff;
+}
+
+.main {
+    width: 305px;
+    background-color: pink;
+    margin: 20px auto 0;
+    padding:20px;
+}
+
+#define {
+    height: 19px;
+    width: 50px;
+    background-color: #ccc;
+    line-height: 19px;
+    margin: 20px auto;
+    text-align: center;
+    border:1px solid #ccc;
+    cursor: pointer;
+    color:#fff;
+}
+
+li input {
+    margin-left:88px;
+}
+li button {
+    margin-left:10px;
+    width:34px;
+    display:inline-block;
+    line-height:19px;
+    text-align:center;
+    background-color:#ccc;
+    border:1px solid #ccc;
+    height:19px;
+    cursor: pointer;
+    color:#fff;
+}
+
+li {
+    margin-top:10px; 
+}
+
+#p {
+    height: 30px;
+    width: 305px;
+    margin: 0 auto;
+    line-height: 30px;
+    text-align: center;
+    color:#fff;
+}
