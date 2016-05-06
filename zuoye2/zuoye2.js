@@ -1,23 +1,30 @@
-// var add = document.getElementById('add');
+
+var add = document.getElementById('add');
 
 add.onclick = function() {
-   
     var ul = document.getElementById('ul');
-    var len = document.getElementsByTagName("li").length;
-    var llll;
-    if (len < 4) {
-        llll = '<li><input><button>删除</button></li>';
-        ul.innerHTML += llll;
-    }
-    var Btn = document.getElementsByTagName('button');
+    var li = document.createElement('li');
+    var input = document.createElement('input');
+    var Btn = document.createElement('button');
+    var text = document.createTextNode('删除');
 
     var len = document.getElementsByTagName("li").length;
-    for(var i=0; i<len; i++) {
-        Btn[i].onclick = function() {
-        this.parentNode.parentNode.removeChild(this.parentNode);       
-        }
+    if(len < 4) {
+      Btn.appendChild(text);
+      li.appendChild(input);
+      li.appendChild(Btn)
+      ul.appendChild(li);
+    }else{
+      add.disabled='disabled';
+    } ;
+
+    Btn.onclick = function() {
+        this.parentNode.parentNode.removeChild(this.parentNode);
     }
+
+    console.log(len);
 };
+
 
 var define = document.getElementById('define');
 
