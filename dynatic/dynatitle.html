@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>wbc欢迎您</title>
+</head>
+<body>
+    <script>
+        var dynaTitle = function() { 
+                   // var flag = true;
+            // setInterval(function() {
+            //     var title = document.title;
+                
+                // if (flag) {
+                //    document.title='【您有新的消息】';
+                //    } else {
+                //    document.title='wbc欢迎您';
+                //    } 
+
+                //     flag = !flag;
+                // if (title == 'wbc欢迎您') {
+                //     document.title='【您有新的消息】';
+                // } else {
+                //     document.title='wbc欢迎您';
+                // }
+            var time = 0;
+            time =  setInterval(function() {   
+                time++;
+                if (time%3==0) {
+                    document.title='wbc欢迎您1';
+                    } else if (time%3==1) {
+                    document.title='wbc欢迎您2';
+                    } else if (time%3==2) {
+                    document.title='wbc欢迎您3';
+                    }
+                
+            },500);
+        };
+        dynaTitle();
+    </script>
+</body>
+</html>
