@@ -1,0 +1,75 @@
+<!doctype html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>random</title>
+    <style>
+        .random {
+           width:300px; 
+        }
+        .title {
+            width:300px;
+            height:100px;
+            line-height:100px;
+            border:2px solid green;
+            text-align:center;
+            font-size:30px;
+        }
+        .btns button {
+            margin:20px 50px;
+        }
+        input {
+            width:230px;
+        }
+        .add-wp button {
+            width:50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="random-wp">
+        <div id="title" class="title">点击开始</div>
+        <div class="btns">
+            <button id="start">开始</button>
+            <button id="stop">停止</button>
+        </div>
+        <div class="add-wp">
+            <input type="text">
+            <button id="add">新增</button>
+        </div>
+    </div>
+    <script> 
+        var start = document.getElementById('start');
+        var stop = document.getElementById('stop');
+        var add = document.getElementById('add');
+        var title = document.getElementById('title');
+        var arr = '故宫 长城 十三陵 十渡 圆明园 颐和园'.split(' ');
+        console.log(arr);
+        var len,
+            index,
+            timer;
+        start.onclick = function() {
+            // if(timer) {
+            //     return;
+            // }
+            start.disabled = 'disabled';
+            var len = arr.length;
+            timer = setInterval(function() {
+                index = Math.floor(Math.random()*len);
+                title.innerHTML = arr[index];
+            },100);
+        }
+        stop.onclick = function() {
+            clearInterval(timer);
+            // timer = undefined;
+            start.disabled = '';
+        }
+        add.onclick = function() {
+            var val = this.parentNode.getElementsByTagName('input')[0].value;
+            arr.push(val);
+            console.log(arr);
+        }
+
+    </script>
+</body>
+</html>

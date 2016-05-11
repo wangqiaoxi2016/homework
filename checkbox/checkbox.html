@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>checkbox</title>
+</head>
+<body>
+    <input type="checkbox" checked="checked">
+    <table border="1">
+        <tr>
+            <th><input type="checkbox" id="all" ></th>
+            <th>姓名</th>
+            <th>年龄</th>
+            <th>电话</th>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="chk" ></td>
+            <td>aaa</td>
+            <td>bbb</td>
+            <td>ccc</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="chk" ></td>
+            <td>aaa</td>
+            <td>bbb</td>
+            <td>ccc</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="chk" ></td>
+            <td>aaa</td>
+            <td>bbb</td>
+            <td>ccc</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="chk" ></td>
+            <td>aaa</td>
+            <td>bbb</td>
+            <td>ccc</td>
+        </tr>
+    </table>
+    <script>
+        function initCheckBox(){
+            var all = document.getElementById('all');
+            var chks = document.getElementsByName('chk');
+            var len = chks.length;
+            all.onclick = function() {
+                var i, status="",bgColor="";
+                if (this.checked) {
+                     status="checked";
+                     bgColor="yellow";
+                }else {
+                    status="";
+                    bgColor="#fff";
+                }
+                for (i=0;i<len;i++) {
+                    chks[i].checked=status;
+                    chks[i].parentNode.parentNode.style.backgroundColor=bgColor;  
+                }
+            }
+        }
+        initCheckBox();
+    </script>
+</body>
+</html>
