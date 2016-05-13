@@ -64,12 +64,84 @@
             // timer = undefined;
             start.disabled = '';
         }
-        add.onclick = function() {
-            var val = this.parentNode.getElementsByTagName('input')[0].value;
-            arr.push(val);
-            console.log(arr);
-        }
 
+        add.onclick = function() {
+
+            var input = this.parentNode.getElementsByTagName('input')[0],
+            val = input.value;
+            var i,intArray = val.split('|'),len=intArray.length;
+            input.value = '';
+            for(i=0;i<len;i++) {
+                if(inArray(intArray[i],arr)) {
+                    alert(intArray[i]+'已存在，不添加');
+                } else if(intArray[i]) {
+                    alert(intArray[i]+'不存在，添加');
+                    arr.push(intArray[i]);
+                    console.log(arr);
+                }
+            }
+            return arr;
+        }
+        function inArray(item,arr) {
+            var i,len = arr.length;
+            for(i=0;i<len;i++) {
+                if (arr[i] == item) {
+                return true;
+                }   
+            }
+            return false; 
+        }
+            
+    
+        // add.onclick = function() {
+
+        //     var input = this.parentNode.getElementsByTagName('input')[0],
+        //         val = input.value;
+        //     // arr.push(val);
+        //     var i, len = arr.length, j; 
+        //     for(i=0; i<len; i++) {
+        //         for(j=0; j<(input.value.split('|').length); j++) {
+        //             if((input.value.split('|')[j]) == arr[i]) {
+        //                 alert('已有该景点');
+        //                 arr.splice(i,1)                                
+        //         }
+        //     }
+        // }
+        // arr = arr.concat(val.split('|'));
+        // console.log(arr);
+        // input.value = '';
+        // };
+ //        add.onclick = function() {
+ // +        var i, len = arr.length, j;                 //方法一
+ // +        for(i=0; i<len; i++) {
+ // +            for(j=0; j<(input.value.split('|').length); j++) {
+ // +                if((input.value.split('|')[j]) == arr[i]) {
+ // +                    alert('已有该景点');
+ // +                    arr.splice(i,1)
+ // +                }           
+ // +            }    
+ // +        }                                
+ // +          
+ // +        arr = arr.concat(ipt.value.split('|'));
+ // +
+             // add(arr);
+         
+ // +        console.log(arr);
+ // +
+ // +        ipute.value = '';
+ 
+             // function add(arr2) {                 //方法二
+             //     var i, len=arr2.length, j;
+             //     for(i=0; i<len; i++) {
+             //         for(j=i+1; j<len; j++) {
+             //             if(arr2[i] == arr2[j]) {
+             //                 arr2.splice(j,1)
+             //             }
+             //         }
+             //     }
+             //     return arr2;
+             // }
+       
     </script>
 </body>
 </html>
