@@ -43,8 +43,9 @@
             var all = document.getElementById('all');
             var chks = document.getElementsByName('chk');
             var len = chks.length;
+            var  j,i,k;
             all.onclick = function() {
-                var i, status="",bgColor="";
+                var status="",bgColor="";
                 if (this.checked) {
                      status="checked";
                      bgColor="yellow";
@@ -56,6 +57,30 @@
                     chks[i].checked=status;
                     chks[i].parentNode.parentNode.style.backgroundColor=bgColor;  
                 }
+            }
+            for(j=0;j<len;j++) {
+                chks[j].onclick = function() {
+                    if(this.checked) {
+                        this.parentNode.parentNode.style.backgroundColor='yellow';
+                    }else {
+                         this.parentNode.parentNode.style.backgroundColor='#fff';
+                    }
+                    if(ischeckedAll()) {
+                        all.checked = 'checked';
+                    } else {
+                        all.checked = '';
+                    }
+                }
+            }
+        
+            function ischeckedAll() {
+                
+                for(k=0;k<len;k++) {
+                    if(!chks[k].checked) {
+                        return false;
+                    }
+                }
+                return true;
             }
         }
         initCheckBox();
