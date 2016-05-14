@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>biaogexuanran</title>
+    <style>
+    table {
+        border-collapse: collapse;
+    }
+    th {
+        width:100px;
+        text-align:left;
+    }
+    th,td {
+        text-indent:5px;
+    }
+     table,th,td {
+        border:1px solid red;
+     }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>电话</th>
+                <th>邮箱</th>
+                <th>性别</th>
+            </tr>
+        </thead>
+        <tbody id="tBody">
+            <tr>
+                <td>item1</td>
+                <td>item2</td>
+                <td>item3</td>
+                <td>item4</td>
+                <td>item5</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+    var arr = [
+        {
+            name:'test1',
+            age:20,
+            mobile:11000000,
+            email:'test1@126.com',
+            gender:'男',
+        },
+        {
+            name:'test2',
+            age:29,
+            mobile:11000000,
+            email:'test2@126.com',
+            gender:'男',
+        },
+        {
+            name:'test3',
+            age:35,
+            mobile:11000000,
+            email:'test3@126.com',
+            gender:'女',
+        },
+        {
+            name:'test4',
+            age:50,
+            mobile:11000000,
+            email:'test4@126.com',
+            gender:'男',
+        },
+        {
+            name:'test5',
+            age:45,
+            mobile:11000000,
+            email:'test5@126.com',
+            gender:'女',
+        },
+    ];
+    var renderTable = function() {
+        var i,
+            len=arr.length,
+            str=[];
+        var TBody=document.getElementById('tBody');
+        for(i=0;i<len;i++) {
+            // console.log(arr[i]);
+            str.push(
+                '<tr>',
+                    '<td>',arr[i].name,'</td>',
+                    '<td>',arr[i].age,'</td>',
+                    '<td>',arr[i].mobile,'</td>',
+                    '<td>',arr[i].email,'</td>',
+                    '<td>',arr[i].gender,'</td>',
+                '</tr>'
+                );
+        }
+        tBody.innerHTML+=str.join('');
+        // console.log(table);
+    };
+    renderTable();
+    </script>
+</body>
+</html>
