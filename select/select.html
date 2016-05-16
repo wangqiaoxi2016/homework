@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>select</title>
+    <script src="../homework/underscore-min.js"></script>
+</head>
+<body>
+    请选择旅游景点:<select name="" id="xuanze">
+        <option value="0">请选择</option>
+    </select>
+    <button id="genBtn">生成</button>
+    
+     <script type="text/template">   
+        
+    //         <option><%=value%></option>
+            
+    //         genBtn.onclick = function() {
+    //         var xunaze = document.getElementById('xuanze');
+    //         var genBtn = document.getElementById('genBtn');
+    //         var trs = document.getElementById('trs').innerHTML,
+    //             tds=[],
+    //             compliled = _.compliled(xuan);
+
+    //             _.each(tmpArr,function(obj) {
+    //                 tds.push(compliled(obj));
+    //             });
+    //             xuan.innerHTML = tds.join('');
+    //         }
+    //         var arr = '故宫 长城 十三陵 十渡 圆明园 颐和园'.split(' ');
+    //         renderTable(arr);
+    // 
+        
+        var arr = '故宫 长城 十三陵 十渡 圆明园 颐和园'.split(' ');
+        var c = _.map(arr, function(num){ 
+            return '<option>' + num + '</option>'; 
+        });
+ 
+        console.log(c);
+        
+    </script>
+</body>
+</html>
