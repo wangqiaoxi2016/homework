@@ -18,6 +18,7 @@
         border:1px solid red;
      }
     </style>
+    <script src="../underscore-min.js" type="text/javascript"></script>
 </head>
 <body>
     <table>
@@ -40,65 +41,127 @@
             </tr>
         </tbody>
     </table>
+    <script id="trsTpl" type="text/template">   
+            <tr>
+                <td><%=name%></td>
+                <td><%=age%></td>
+                <td><%=mobile%></td>
+                <td><%=email%></td>
+                <td><%=gender%></td>
+            </tr>
+    </script>
     <script>
-    var arr = [
-        {
-            name:'test1',
-            age:20,
-            mobile:11000000,
-            email:'test1@126.com',
-            gender:'男',
-        },
-        {
-            name:'test2',
-            age:29,
-            mobile:11000000,
-            email:'test2@126.com',
-            gender:'男',
-        },
-        {
-            name:'test3',
-            age:35,
-            mobile:11000000,
-            email:'test3@126.com',
-            gender:'女',
-        },
-        {
-            name:'test4',
-            age:50,
-            mobile:11000000,
-            email:'test4@126.com',
-            gender:'男',
-        },
-        {
-            name:'test5',
-            age:45,
-            mobile:11000000,
-            email:'test5@126.com',
-            gender:'女',
-        },
-    ];
-    var renderTable = function() {
-        var i,
-            len=arr.length,
-            str=[];
-        var TBody=document.getElementById('tBody');
-        for(i=0;i<len;i++) {
-            // console.log(arr[i]);
-            str.push(
-                '<tr>',
-                    '<td>',arr[i].name,'</td>',
-                    '<td>',arr[i].age,'</td>',
-                    '<td>',arr[i].mobile,'</td>',
-                    '<td>',arr[i].email,'</td>',
-                    '<td>',arr[i].gender,'</td>',
-                '</tr>'
-                );
-        }
-        tBody.innerHTML=str.join('');
-        // console.log(table);
-    };
-    renderTable();
+            var arr = [
+                {
+                    name:'test1',
+                    age:20,
+                    mobile:11000000,
+                    email:'test1@126.com',
+                    gender:'男',
+                },
+                {
+                    name:'test2',
+                    age:29,
+                    mobile:11000000,
+                    email:'test2@126.com',
+                    gender:'男',
+                },
+                {
+                    name:'test3',
+                    age:35,
+                    mobile:11000000,
+                    email:'test3@126.com',
+                    gender:'女',
+                },
+                {
+                    name:'test4',
+                    age:50,
+                    mobile:11000000,
+                    email:'test4@126.com',
+                    gender:'男',
+                },
+                {
+                    name:'test5',
+                    age:45,
+                    mobile:11000000,
+                    email:'test5@126.com',
+                    gender:'女',
+                },
+            ];    
+            
+            function renderTable(tmpArr) {
+                var tBody = document.getElementById('tBody'),
+                    tpl = document.getElementById('trsTpl').innerHTML,
+                    trs=[],
+                    compiled = _.template(tpl);
+
+                _.each(tmpArr,function(obj) {
+                    trs.push(compiled(obj));
+                });
+                console.log(trs);
+                tBody.innerHTML = trs.join('');
+            }
+                
+            renderTable(arr);
+    
+    // var arr = [
+    //     {
+    //         name:'test1',
+    //         age:20,
+    //         mobile:11000000,
+    //         email:'test1@126.com',
+    //         gender:'男',
+    //     },
+    //     {
+    //         name:'test2',
+    //         age:29,
+    //         mobile:11000000,
+    //         email:'test2@126.com',
+    //         gender:'男',
+    //     },
+    //     {
+    //         name:'test3',
+    //         age:35,
+    //         mobile:11000000,
+    //         email:'test3@126.com',
+    //         gender:'女',
+    //     },
+    //     {
+    //         name:'test4',
+    //         age:50,
+    //         mobile:11000000,
+    //         email:'test4@126.com',
+    //         gender:'男',
+    //     },
+    //     {
+    //         name:'test5',
+    //         age:45,
+    //         mobile:11000000,
+    //         email:'test5@126.com',
+    //         gender:'女',
+    //     },
+    // ];
+    // var renderTable = function() {
+    //     var i,
+    //         len=arr.length,
+    //         str=[];
+    //     var TBody=document.getElementById('tBody');
+    //     for(i=0;i<len;i++) {
+    //         // console.log(arr[i]);
+    //         str.push(
+    //             '<tr>',
+    //                 '<td>',arr[i].name,'</td>',
+    //                 '<td>',arr[i].age,'</td>',
+    //                 '<td>',arr[i].mobile,'</td>',
+    //                 '<td>',arr[i].email,'</td>',
+    //                 '<td>',arr[i].gender,'</td>',
+    //             '</tr>'
+    //             );
+    //     }
+    //     tBody.innerHTML=str.join('');
+    //     // console.log(table);
+    // };
+    // renderTable();
     </script>
 </body>
 </html>
