@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>select</title>
-    <script src="../homework/underscore-min.js"></script>
+    <script src="../underscore-min.js" type="text/javascript"></script>
 </head>
 <body>
     请选择旅游景点:<select name="" id="xuanze">
@@ -11,33 +11,18 @@
     </select>
     <button id="genBtn">生成</button>
     
-     <script type="text/template">   
+     <script>   
         
-    //         <option><%=value%></option>
-            
-    //         genBtn.onclick = function() {
-    //         var xunaze = document.getElementById('xuanze');
-    //         var genBtn = document.getElementById('genBtn');
-    //         var trs = document.getElementById('trs').innerHTML,
-    //             tds=[],
-    //             compliled = _.compliled(xuan);
-
-    //             _.each(tmpArr,function(obj) {
-    //                 tds.push(compliled(obj));
-    //             });
-    //             xuan.innerHTML = tds.join('');
-    //         }
-    //         var arr = '故宫 长城 十三陵 十渡 圆明园 颐和园'.split(' ');
-    //         renderTable(arr);
-    // 
-        
-        var arr = '故宫 长城 十三陵 十渡 圆明园 颐和园'.split(' ');
+        var xuanze = document.getElementById('xuanze'),
+            genBtn = document.getElementById('genBtn'),
+            arr = '故宫 长城 十三陵 十渡 圆明园 颐和园'.split(' '),
+            i;
         var c = _.map(arr, function(num){ 
-            return '<option>' + num + '</option>'; 
+            return '<option value="'+(i+1) +'">'+num+ '</option>'; 
         });
- 
-        console.log(c);
-        
+        genBtn.onclick = function() {
+            xuanze.innerHTML = c;
+        };
     </script>
 </body>
 </html>

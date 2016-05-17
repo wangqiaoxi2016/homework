@@ -10,21 +10,26 @@
             margin:auto;
         }
         h1 {
-            margin: 50px 100px ;
+            text-align:center;
         }
+        /*.red-text {
+            color:red;
+            font-size:50px;
+        }*/
     </style>
+    <script src="index.js"></script>
 </head>
 <body>
     <div class="wp">
-        <h1 id="time">00:00:00</h1>
+        <h1 id="time" class="red-text">00:00:00</h1>
         <input type="text" id="Ipt">
         <select name="" id="Sel">
-            <option value="">请选择</option>
-            <option value="">小时</option>
-            <option value="">分钟</option>
-            <option value="">秒</option>
+            <option value="0">请选择</option>
+            <option value="3600">小时</option>
+            <option value="60">分钟</option>
+            <option value="1">秒</option>
         </select>
-        <button>倒计时开始</button>
+        <button id="startBtn">倒计时开始</button>
     </div>
     <script src=""></script>
     <script>
@@ -32,8 +37,35 @@
             var time = $('time'),
                 Ipt = $('Ipt'),
                 Sel = $('Sel'),
+                startBtn = $('startBtn'),
                 i;
-            
+            startBtn.onclick = function() {
+                var ipt = Ipt.value,
+                    sel = Sel.value,
+                    total; 
+                    console.log(sel);
+                total = ipt*sel;
+
+                countDown(total);
+            }
+            function countDown(seconds) {
+                var h,m,s,timer,second;
+                timer = setInterval(function() {
+                    seconds--;
+                    if(seconds==0) {
+                        clearInterval(timer);
+                        alert('时间到');
+                        
+                    } else if(seconds<10) {
+                        time.style.className = "red-text";
+                    }
+
+                    h = Math.floor(seconds/(60*60));
+                    m = Math.floor(seconds%(60*60)/60);
+                    s = Math.floor(seconds%60);
+                    time.innerHTML = fill0(h)+':'+fill0(m)+':'+fill0(s);
+                },1000) 
+            }
         }
         daojishi();
     </script>
