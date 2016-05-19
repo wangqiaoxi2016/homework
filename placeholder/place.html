@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>placeholder</title>
+    <style>
+        .ph-wp {
+            position:relative;
+            display:inline-block;
+        }
+
+        .ph {
+            position:absolute;
+            top:3px;
+            top:5px\0;
+            left:3px;
+            width:100%;
+            height:100%;
+            color:#A9A9A9;
+            font-size:13px;
+        }
+    </style>
+</head>
+<body>
+    <span class="ph-wp">
+        <input type="text" placeholder="请输入你的名字">
+        <span class="ph"></span>
+    </span>
+    <span class="ph-wp">
+        <input type="text" placeholder="请输入你的手机号">
+        <span class="ph"></span>
+    </span>
+    <script src="../tab/tab.js"></script>
+    <script>
+    var placeholderFix = function() {
+        var input = document.createElement('input'),
+            ipts = $$('input'),
+            len = ipts.length,
+            phTxt,
+            phSpan;
+
+        // if ('placeholder' in input) {
+        //     return;
+        // }
+        for (var i=0;i<len;i++) {
+            phTxt = ipts[i].getAttribute('placeholder');
+            phSpan = ipts[i].parentNode.getElementsByTagName('span')[0];
+            // console.log(ipts[i].nextSibling);
+            // console.log(ipts[i].parentNode.getElementsByTagName('span')[0]);
+            phSpan.innerHTML = phTxt;
+            phSpan.onclick = function() {
+                this.parentNode.getElementsByTagName('input')[0].focus();
+            }
+            ipts[i].onkeyup = function() {
+                var status = 'block';
+                if (this.value.length>0) {
+                    status = 'none';
+                } 
+                this.parentNode.getElementsByTagName('span')[0].style.display = status;
+            }
+        }
+    }
+    placeholderFix();
+    </script>
+</body>
+</html>
