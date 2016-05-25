@@ -1,0 +1,37 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+
+
+body {
+    background-color: #333;
+}
+
+ul li {
+    list-style:none;
+}
+
+.accordion {
+    width:240px;
+    background-color: white;
+    margin:50px auto;
+}
+
+.accordion li {
+    background-color: #222;
+    color:#fff;
+    border-bottom:1px solid #ccc;
+}
+
+.accordion li:hover {
+    background-color: #cf4c46;
+}
+
+.item h1 {
+    border-bottom:1px solid #666;
+}
+
+.item ul {
+    display:none;
+}
