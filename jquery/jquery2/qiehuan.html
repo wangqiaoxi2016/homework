@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>qiehuan</title>
+    <style> 
+        .img-slider{
+            width:300px;
+            height:300px;
+            position:relative;
+            overflow:hidden;
+            margin:20px auto;
+        }
+
+        .img-slider img {
+            width:300px;
+            height:300px;
+            
+        }
+        .img-slider a {
+            width:30px;
+            height:50px;
+            position:absolute;
+            top:50%;
+            margin-top:-25px;
+            left:0;
+            background-color: #000;
+            opacity:0.2;
+            display:none;
+        }
+        .img-slider a.next {
+            left:auto;
+            right:0;
+        }
+
+        .img-slider:hover a {
+            display:block;
+        }
+    </style>
+    <script src="../../jquery-1.12.3.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.img-slider>a').on('click',function() {
+                // alert(99);
+                var $this=$(this),
+                    $imgs=$('.img');
+                if($this.hasClass('next')) {
+                    // alert(99);
+                    $imgs.append($imgs.find('img:first'));
+                } else {
+                    // alert(99);
+                    $imgs.prepend($imgs.find('img:last'));
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="img-slider"> 
+        <div class="img">
+            <img src="../img/psb (2).jpg" alt="">
+            <img src="../img/psb (3).jpg" alt="">
+            <img src="../img/psb (4).jpg" alt="">
+            <img src="../img/psb (5).jpg" alt="">
+            <img src="../img/psb (6).jpg" alt="">
+            <img src="../img/psb (7).jpg" alt="">
+            <img src="../img/psb (8).jpg" alt="">
+        </div>
+        <a href="javascript:" class="pre"></a>
+        <a href="javascript:" class="next"></a>
+    </div>
+</body>
+</html>
